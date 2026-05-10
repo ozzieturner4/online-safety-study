@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Safety Learning Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chapter1.html">Chapter 1</a></li>
+            <li><a href="chapter2.html">Chapter 2</a></li>
+            <li><a href="chapter3.html">Chapter 3</a></li>
+            <li><a href="chapter4.html">Chapter 4</a></li>
+            <li><a href="quiz.html">Questionnaire</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <h1>Welcome to the Online Safety Learning Platform</h1>
+
+        <!-- PARTICIPANT INFO -->
+        <section class="consent">
+            <p>
+                Please read the participant information sheet before continuing:
+            </p>
+
+            <a href="participant-info-sheet.pdf" target="_blank">
+                View Participant Information Sheet
+            </a>
+
+            <br><br>
+
+            <label>
+                <input type="checkbox" id="consentCheckbox">
+                I confirm that I have read and understood the participant information
+            </label>
+        </section>
+
+
+        <!-- INTRO TEXT -->
+        <section class="intro">
+            <h2>About this platform</h2>
+            <p>
+                This learning platform has been designed to help improve awareness of
+                common online risks and social engineering threats. Each chapter covers
+                a different topic and includes simple explanations to help you stay safe
+                online.
+            </p>
+
+            <p>
+                You can navigate through the chapters using the menu at the top of the
+                page. Once you have reviewed the material, you can complete the final
+                questionnaire to test your understanding.
+            </p>
+        </section>
+
+
+        <!-- CHAPTER LINKS -->
+        <section class="chapters">
+            <h2>Chapters</h2>
+
+            <ul>
+                <li><a href="chapter1.html">Chapter 1: Introduction to Social Engineering</a></li>
+                <li><a href="chapter2.html">Chapter 2: Phishing Attacks</a></li>
+                <li><a href="chapter3.html">Chapter 3: Online Scams</a></li>
+                <li><a href="chapter4.html">Chapter 4: Staying Safe</a></li>
+            </ul>
+        </section>
+
+
+        <!-- QUIZ -->
+        <section class="quiz">
+            <h2>Final Questionnaire</h2>
+            <p>
+                When you are ready, complete the questionnaire to test your knowledge.
+            </p>
+
+            <a href="quiz.html">
+                Go to Questionnaire
+            </a>
+        </section>
+
+    </div>
+
+
+    <!-- SCRIPT (checkbox validation) -->
+    <script>
+        const links = document.querySelectorAll("a:not([href*='participant-info-sheet'])");
+        const checkbox = document.getElementById("consentCheckbox");
+
+        links.forEach(link => {
+            link.addEventListener("click", function (e) {
+                if (!checkbox.checked && link.getAttribute("href") !== "participant-info-sheet.html") {
+                    e.preventDefault();
+                    alert("Please confirm that you have read the participant information sheet before continuing.");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
